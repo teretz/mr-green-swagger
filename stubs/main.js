@@ -389,15 +389,25 @@ function getCurrentTimestamp(){
     return moment().format("YYYY-MM-DDTHH:mm:ss[Z]")
 }
 
-Sandbox.define('/v2/indicators/{post_id}','DELETE', function(req, res) {
-   var user = _.find(state.indicators, { 'id': req.params.post_id })
+Sandbox.define('/v2/indicators/{post_id}','DELETE', function(req, res){
+    var user = _.find(state.indicators, {
+        'id': req.params.post_id
+    })
     
-  if (!user) {
-      return res.json(404, { error: { mesage: 'User doesnt exist'} })
-  }
-  
-  // use Lodash reject to remove the user
-  state.users = _.reject(state.indicators, { 'id': req.params.post_id })
-  
-  return res.json({status: 'ok'})
+    if (!user) {
+        return res.json(404, {
+            error: {
+                mesage: 'User doesnt exist'
+            }
+        })
+    }
+    
+    // use Lodash reject to remove the user
+    state.indicators = _.reject(state.indicators, {
+        'id': req.params.post_id
+    })
+    
+    return res.json({
+        status: 'ok'
+    })
 })
