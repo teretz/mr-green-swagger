@@ -390,14 +390,14 @@ function getCurrentTimestamp(){
 }
 
 Sandbox.define('/v2/indicators/{post_id}','DELETE', function(req, res) {
-   var user = _.find(state.indicators, { 'username': req.params.post_id })
+   var user = _.find(state.indicators, { 'id': req.params.post_id })
     
   if (!user) {
       return res.json(404, { error: { mesage: 'User doesnt exist'} })
   }
   
   // use Lodash reject to remove the user
-  state.users = _.reject(state.users, { 'username': req.params.username })
+  state.users = _.reject(state.indicators, { 'id': req.params.post_id })
   
   return res.json({status: 'ok'})
 })
