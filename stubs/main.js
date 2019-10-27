@@ -390,19 +390,14 @@ function getCurrentTimestamp(){
 }
 
 Sandbox.define('/v2/indicators/{post_id}','DELETE', function(req, res) {
-    // Check the request, make sure it is a compatible type
-    if (!req.is('application/json')) {
-        return res.send(400, 'Invalid content type, expected application/json');
-    }
+   var user = _.find(state.indicators, { 'username': req.params.post_id })
     
-    // Set the type of response, sets the content type.
-    res.type('application/json');
-    
-    // Set the status code of the response.
-    res.status(200);
-    
-    // Send the response body.
-    res.json({
-        "status": "ok"
-    });
+  if (!user) {
+      return res.json(404, { error: { mesage: 'User doesnt exist'} })
+  }
+  
+  // use Lodash reject to remove the user
+  state.users = _.reject(state.users, { 'username': req.params.username })
+  
+  return res.json({status: 'ok'})
 })
