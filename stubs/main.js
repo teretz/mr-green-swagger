@@ -388,3 +388,21 @@ function getId() {
 function getCurrentTimestamp(){
     return moment().format("YYYY-MM-DDTHH:mm:ss[Z]")
 }
+
+Sandbox.define('/v2/indicators/{post_id}','DELETE', function(req, res) {
+    // Check the request, make sure it is a compatible type
+    if (!req.is('application/json')) {
+        return res.send(400, 'Invalid content type, expected application/json');
+    }
+    
+    // Set the type of response, sets the content type.
+    res.type('application/json');
+    
+    // Set the status code of the response.
+    res.status(200);
+    
+    // Send the response body.
+    res.json({
+        "status": "ok"
+    });
+})
