@@ -161,7 +161,7 @@ Sandbox.define('/v2/indicators/{indicatorId}','get', function(req, res){
 Sandbox.define('/v2/indicator/byType/{indicatorType}','get', function(req, res){
     var returned = [];
     if (req.params.indicatorType === "Closing") {
-        returned = indicatorsMap;
+        returned = closingIndicatorsMap;
     }
     if (req.params.indicatorType === "Trend") {
         returned = trendIndicatorsMap;
