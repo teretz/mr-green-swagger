@@ -189,21 +189,41 @@ Sandbox.define('/v2/indicators','post', function(req, res){
         updated_at: getCurrentTimestamp()
     };
     
-    indicatorMap[indicator.id] = indicator;
+    /*indicatorMap[indicator.id] = indicator;
     
-   if(indicator.type === "Closing"){        closingIndicatorsMap[indicator.id] = indicator;   }
-    if(indicator.tag00 === "Closing"){        closingIndicatorsMap[indicator.id] = indicator;   }
-   if(indicator.tag01 === "Closing"){        closingIndicatorsMap[indicator.id] = indicator;   }
-   if(indicator.tag02 === "Closing"){        closingIndicatorsMap[indicator.id] = indicator;   }
-   if(indicator.tag03 === "Closing"){        closingIndicatorsMap[indicator.id] = indicator;   }
-   
-   if(indicator.type === "Trend" ){        trendIndicatorsMap[indicator.id] = indicator;   }
-   if(indicator.tag00 === "Trend"){        trendIndicatorsMap[indicator.id] = indicator;   }
-   if(indicator.tag01 === "Trend"){        trendIndicatorsMap[indicator.id] = indicator;   }
-   if(indicator.tag02 === "Trend"){        trendIndicatorsMap[indicator.id] = indicator;   }
-   if(indicator.tag03 === "Trend"){        trendIndicatorsMap[indicator.id] = indicator;   }
-   
-    console.log("Added indicator with id: " + indicator.id + '||' + indicator.label +'||'+ indicator.type + '||' + indicator.status);
+    if (indicator.type === "Closing") {
+        closingIndicatorsMap[indicator.id] = indicator;
+    }
+    if (indicator.tag00 === "Closing") {
+        closingIndicatorsMap[indicator.id] = indicator;
+    }
+    if (indicator.tag01 === "Closing") {
+        closingIndicatorsMap[indicator.id] = indicator;
+    }
+    if (indicator.tag02 === "Closing") {
+        closingIndicatorsMap[indicator.id] = indicator;
+    }
+    if (indicator.tag03 === "Closing") {
+        closingIndicatorsMap[indicator.id] = indicator;
+    }
+    
+    if (indicator.type === "Trend") {
+        trendIndicatorsMap[indicator.id] = indicator;
+    }
+    if (indicator.tag00 === "Trend") {
+        trendIndicatorsMap[indicator.id] = indicator;
+    }
+    if (indicator.tag01 === "Trend") {
+        trendIndicatorsMap[indicator.id] = indicator;
+    }
+    if (indicator.tag02 === "Trend") {
+        trendIndicatorsMap[indicator.id] = indicator;
+    }
+    if (indicator.tag03 === "Trend") {
+        trendIndicatorsMap[indicator.id] = indicator;
+    }*/
+    
+    console.log("Added indicator with id: " + indicator.id + '||' + indicator.label + '||' + indicator.type + '||' + indicator.status);
     res.json(indicator);
 });
 
