@@ -191,7 +191,7 @@ Sandbox.define('/v2/indicators','post', function(req, res){
     
     indicatorMap[indicator.id] = indicator;
     
-    /*if (indicator.type === "Closing") {
+    if (indicator.type === "Closing") {
     closingIndicatorsMap[indicator.id] = indicator;
     }
     if (indicator.tag00 === "Closing") {
@@ -221,7 +221,7 @@ Sandbox.define('/v2/indicators','post', function(req, res){
     }
     if (indicator.tag03 === "Trend") {
     trendIndicatorsMap[indicator.id] = indicator;
-    }*/
+    }
     
     console.log("Added indicator with id: " + indicator.id + '||' + indicator.label + '||' + indicator.type + '||' + indicator.status);
     res.json(indicator);
